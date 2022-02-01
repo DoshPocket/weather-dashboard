@@ -1,5 +1,6 @@
-
-/* 
-nav h1 {
-    text: "green-500"
-} */
+#UV-index {
+    background-color: rgb(51, 192, 51);
+    color: #ffffff;
+    width: 5rem;
+    border-radius: 4px;
+}

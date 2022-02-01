@@ -20,7 +20,6 @@ function getApi(event) {
   event.preventDefault();
   let cityName = cityEl.value.trim();
         let searchTerm = cityEl.value;
-      // getApi(searchTerm);
       searchHistory.push(searchTerm);
       console.log("1");
       localStorage.setItem("search", JSON.stringify(searchHistory));
@@ -49,7 +48,7 @@ function getApi(event) {
         let lon = data.coord.lon;
         let uvRequestUrl =
           "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&cnt=1";
-
+            //UV index fetch
         fetch(uvRequestUrl)
         .then(function (response) {
           return response.json()
@@ -58,18 +57,18 @@ function getApi(event) {
               console.log(data);
               console.log(uvRequestUrl);
               let UVIndex = document.createElement("span");
-              //UV Index
               // When UV Index is safe, it's green, moderate, it's yellow, severe, it's red
               if (data.current.uvi < 4) {
-                UVIndex.setAttribute("class", "badge badge-success");
+                UVIndex.setAttribute("style", "background-color: rgb(51, 192, 51) color: #ffffff width: 5rem border-radius: 4px");
               } else if (data.current.uvi < 8) {
-                UVIndex.setAttribute("class", "badge badge-warning");
+                UVIndex.setAttribute("style", "background-color: rgb(240, 236, 18) color: #ffffff width: 5rem border-radius: 4px");
               } else {
-                UVIndex.setAttribute("class", "badge badge-danger");
+                UVIndex.setAttribute("style", "background-color: rgb(230, 26, 26) color: #ffffff width: 5rem border-radius: 4px");
               }
               UVIndex = data.current.uvi;
               currentUVEl.innerHTML = "UV Index: ";
               currentUVEl.append(UVIndex);
+              console.log(data.current.uvi);
             });
         });
         // five day forecast
@@ -123,7 +122,7 @@ function getApi(event) {
       });
   });
 };
-
+//display search history in a list
 function renderSearchHistory() {
   historyEl.innerHTML = "";
   for (let i = 0; i < searchHistory.length; i++) {
