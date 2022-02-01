@@ -9,7 +9,7 @@ I learned how to scrutinize the results and data of a fetch in order to organize
 
 ## Deployment
 
-Deployed at: 
+Deployed at: https://doshpocket.github.io/weather-dashboard/
 GitHub: https://github.com/DoshPocket/weather-dashboard
 
 ## License
